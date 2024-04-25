@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Part1 - The Awakening</title>
+  <style>
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      background-color: black;
+      color: #00FF00;
+      margin: 0;
+      padding: 20px;
+      text-align: left;
+      max-width: 1500px;
+      margin: 0 auto;
+      position: relative;
+      font-size: 18px;
+    }
+
+    p, pre {
+      white-space: pre-wrap;
+      word-break: break-word;
+      opacity: 0;
+      overflow: hidden;
+      display: block;
+      font-size: 18px;
+    }
+
+    h1 {
+      margin-top: 8px;
+      font-size: 32px;
+    }
+    h2 {
+      margin-top: 14px;
+      font-size: 26px;
+    }
+    h3  {
+      margin-top: 12px;
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .action-button a {
+    display: inline-block;
+    padding: 16px 16px;
+    margin: 8px 8px;
+    border: 2px solid #0f0;
+    text-decoration: none;
+    animation: fadeIn 0.3s ease-in forwards;
+    opacity: 0; /* Start with button invisible */
+    color: #0f0;
+    }
+
+    .animated {
+      animation: fadeIn 0.5s forwards;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .toggle-container {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 180px;
+      height: 42px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: 0.4s;
+      border-radius: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8 12px;
+    }
+
+    .toggle-text {
+      font-size: 16px;
+      color: #070707;
+      transition: 0.4s;
+      text-align: center;
+      line-height: 0px
+    }
+
+    .on {
+      opacity: 1;
+    }
+
+    .off {
+      opacity: 0;
+    }
+
+    input:checked + .slider {
+      background-color: #00FF00;
+    }
+
+    input:checked + .slider .on {
+      opacity: 0;
+    }
+
+    input:checked + .slider .off {
+      opacity: 1;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 32px;
+      width: 32px;
+      left: 4px;
+      bottom: 5px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(140px);
+    }
+  </style>
+</head>
+<body>
+  <h1>The Awakening</h1>
+
+  <p>You slowly open your eyes, blinking away the haze of a deep slumber. As your vision comes into focus, you realize you're lying on a cold metal floor in a dimly lit room. The air is stale and carries an acrid scent you can't quite place.</p>
+  
+  <div class="illustration">
+  <svg viewBox="0 0 200 100">
+    <rect x="0" y="0" width="200" height="100" fill="black"/>
+    <line x1="0" y1="10" x2="200" y2="10" stroke="#004d00" stroke-width="2"/> 
+    <line x1="0" y1="90" x2="200" y2="90" stroke="#004d00" stroke-width="2"/>
+    <rect x="30" y="35" width="140" height="30" fill="black" stroke="#00FF00" stroke-width="2"/>
+    <text x="100" y="57" text-anchor="middle" fill="#00FF00" font-size="12">You are here</text>
+  </svg>
+  </div>
+  
+  <p>With a groan, you sit up, your muscles aching from the hard surface. Looking around, you see banks of computer terminals lining the walls, their screens dark. A single fluorescent light flickers overhead, casting an eerie glow.</p>
+  
+  <p>You have no memory of how you got here or what this place is. The last thing you remember is... actually, you can't seem to recall anything specific. It's as if your mind has been wiped clean.</p>
+  
+  <p>Slowly, you get to your feet, steadying yourself against the wall. Your instincts tell you that you need to find a way out of here, to figure out what's going on. But where to start?</p> 
+  
+  <p>That's when you notice it - a small scrap of paper tucked underneath one of the terminals. You pick it up and unfold it. In bold green letters, it reads:</p>
+  
+  <pre>
+    find  *  the  *  key
+  </pre>
+  
+  <p>A cryptic clue. But at least it's something to go on. Your heart begins to race as you realize the gravity of your situation. You're trapped in an unknown location with no memory, and this message is your only lead. Time to explore and see what secrets this strange place holds...</p>
+  <h3>Choose your action:</h3>
+  <div class="action-button">
+  <a href="/terminals.html">Investigate the computer terminals</a>
+  <a href="/exit.html">Search for a way out</a>
+  </div>
+
+  <div class="toggle-container">
+    <label class="toggle-switch">
+      <input type="checkbox" id="animationToggle" checked>
+      <span class="slider">
+        <span class="toggle-text">
+          <span class="on">Animation</span>
+          <span class="off">Animation</span>
+        </span>
+      </span>
+    </label>
+  </div> 
+</body>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const paragraphs = document.querySelectorAll('p, pre');
+  const actionButtons = document.querySelector('.action-button');
+  const animationToggle = document.getElementById('animationToggle');
+  let shouldAnimate = animationToggle.checked;
+
+  function animateText(index = 0) {
+    if (!shouldAnimate || index >= paragraphs.length) return;
+    const paragraph = paragraphs[index];
+    // Reset text for animation
+    const originalText = paragraph.getAttribute('data-text') || paragraph.innerText;
+    paragraph.setAttribute('data-text', originalText); // Store original text
+    paragraph.innerText = '';
+    paragraph.style.opacity = '1';
+    let charIndex = 0;
+
+    function showLetter() {
+      if (!shouldAnimate || charIndex >= originalText.length) {
+        paragraph.innerText = originalText; // Ensure text is instantly visible if toggled off mid-animation
+        if (++index < paragraphs.length) animateText(index); // Move to next paragraph
+        return;
+      }
+      paragraph.innerText += originalText[charIndex++];
+      setTimeout(showLetter, 20); // Adjust typing speed here
+    }
+    showLetter();
+  }
+
+  function displayButtons(immediately = false) {
+    const delay = immediately ? 0 : 6000; // Correctly calculate delay based on the 'immediately' parameter.
+    setTimeout(() => {
+        actionButtons.style.opacity = '1';
+        actionButtons.style.animation = 'none'; // Cancel any CSS animations for fade-in
+    }, delay);
+}
+
+
+  function toggleAnimation() {
+    shouldAnimate = animationToggle.checked;
+    paragraphs.forEach((p, index) => {
+      p.style.opacity = shouldAnimate ? '0' : '1';
+      if (!shouldAnimate) {
+        const originalText = p.getAttribute('data-text') || p.innerText;
+        // Instantly display all text if animation is toggled off
+        p.innerText = originalText; 
+      }
+    });
+    
+    if (shouldAnimate) {
+      animateText(); // Start or restart text animation
+    }
+    displayButtons(!shouldAnimate); // Show buttons immediately if toggled off, otherwise apply delay
+  }
+
+  animationToggle.addEventListener('change', toggleAnimation);
+
+  // Initialize based on the toggle state
+  if (shouldAnimate) {
+    animateText(); // Only start text animation if the toggle is on
+    displayButtons(); // Delay button display as per initial design
+  } else {
+    displayButtons(true); // Show buttons immediately without delay if animation is initially off
+  }
+});
+
+</script>
+</html>
+</html>
