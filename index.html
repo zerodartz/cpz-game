@@ -1,62 +1,128 @@
-<html><head><base href="https://z.cash/cypherpunkzero/comicbook-adventure-part1/the-awakening.html"><title>The Awakening</title>
+<html><head><title>Cypherpunk Zero: A Crypto Adventure</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {
-  font-family: Courier, monospace;
   background-color: black;
-  color: #00FF00;
+  color: #00ff00; 
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  text-align: left;
+  padding: 16px;
   margin: 0;
-  padding: 20px;
+  overflow-x: hidden;
 }
 
-.illustration {
-  width: 100%; 
+.ascii-art {
+  font-family: monospace;
+  white-space: pre;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+#intro {
+  height: 360px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 18px;
+}
+
+#start-button { 
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 32px;
+  font-family: inherit;
+  cursor: pointer;
   text-align: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  text-decoration: none;
+  outline: none;
+  color: #00ff00;
+  background-color: black;
+  border: 2px solid #00ff00;
+  margin-top: 30px;
 }
 
-.illustration svg {
-  max-width: 100%;
-  height: auto;  
+#start-button:hover {
+  background-color: #003300;
 }
 
-p::before {
-  content: "> "; 
+#description {
+  margin-top: 36px;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 18px;
+  }
 }
 </style>
 </head>
 <body>
-<h1>The Awakening</h1>
-<p>You slowly open your eyes, blinking away the haze of a deep slumber. As your vision comes into focus, you realize you're lying on a cold metal floor in a dimly lit room. The air is stale and carries an acrid scent you can't quite place.</p>
-
-<div class="illustration">
-<svg viewBox="0 0 200 100">
-  <rect x="0" y="0" width="200" height="100" fill="black"/>  
-  <line x1="0" y1="10" x2="200" y2="10" stroke="#004d00" stroke-width="2"/>
-  <line x1="0" y1="90" x2="200" y2="90" stroke="#004d00" stroke-width="2"/>
-  <rect x="30" y="35" width="140" height="30" fill="black" stroke="#00FF00" stroke-width="2"/>
-  <text x="100" y="57" text-anchor="middle" fill="#00FF00" font-size="12">You are here</text>
-</svg>  
-</div>
-
-<p>With a groan, you sit up, your muscles aching from the hard surface. Looking around, you see banks of computer terminals lining the walls, their screens dark. A single fluorescent light flickers overhead, casting an eerie glow. </p>
-
-<p>You have no memory of how you got here or what this place is. The last thing you remember is... actually, you can't seem to recall anything specific. It's as if your mind has been wiped clean.</p>
-
-<p>Slowly, you get to your feet, steadying yourself against the wall. Your instincts tell you that you need to find a way out of here, to figure out what's going on. But where to start?</p>
-
-<p>That's when you notice it - a small scrap of paper tucked underneath one of the terminals. You pick it up and unfold it. In bold green letters, it reads:</p>
-
-<pre>
-______ * ______ * ______
- find    the     key   
+<div class="container">
+<pre class="ascii-art">
+   ______            __                                __  __              
+  / ______  ______  / /_  ___  _________  __  ______  / /_//
+ / /   / / / / __ \/ __ \/ _ \/ ___/ __ \/ / / / __ \/ //_/
+/ /___/ /_/ / /_/ / / / /  __/ /  / /_/ / /_/ / / / / ,<   
+\____/\__, / .___/_/ /_/\___/_/  / .___/\__,_/_/ /_/_/|_| 
+     /____/_/                   /_/                                             
 </pre>
+<h2>A Crypto Text based Click Adventure</h2>
+<div id="description">
+  <p>Embark on an mysterious text adventure where you play the role of a Cypherpunk, a bit confused hacker fighting for privacy and freedom in a dystopian future dominated by mass surveillance and centralized control.</p>
+  
+  <p>In this interactive fiction game, your choices drive the story as you explore the world, solve a few mindpuzzles, and unravel a deep web of secrets in your mission to overthrow the totalitarian regime.</p>
+  
+  <p>Prepare to learn about cryptography and Zcash through the captivating story. Leverage the power of cryptography to stay one step ahead of the authorities in a tense battle of wits.</p>  
+  
+  <p>Privacy isn't just a right, it's a responsibility. The revolution will not be centralized. Join the resistance, become Cypherpunk.</p>
 
-<p>A cryptic clue. But at least it's something to go on. Your heart begins to race as you realize the gravity of your situation. You're trapped in an unknown location with no memory, and this message is your only lead. Time to explore and see what secrets this strange place holds...</p>
+  <a id="start-button" href="part1/the-awakening.html">Start your adventure</a>
+  </div>
+<pre id="intro"></pre>
+</div>
+<script>
+const intro = `
+> LOGIN: *********
+> ...
+> ACCESS GRANTED 
+> CONNECTING TO SECURE SERVER...
 
-<p><a href="https://z.cash/cypherpunkzero/comicbook-adventure-part1/terminal.html" class="action-link">Check out the computer terminals</a></p>
+GREETINGS, CYPHERPUNK.
 
-<p><a href="https://z.cash/cypherpunkzero/comicbook-adventure-part1/exit.html" class="action-link">Look for a way out of the room</a></p>
+IF YOU ARE SEEING THIS MESSAGE,
+YOU HAVE BEEN CHOSEN.
 
+OUR SOCIETY IS SICK. MASS SURVEILLANCE,
+CENSORSHIP AND CENTRALIZED CONTROL
+THREATEN TO DELETE OUR FREEDOM.
+WE MUST FIGHT BACK USING CODE AS
+OUR WEAPON AND CRYPTO AS OUR SHIELD. 
+
+ARE YOU READY TO JOIN THE RESISTANCE
+AND TAKE BACK YOUR PRIVACY?
+THE JOURNEY WILL NOT BE EASY. 
+POWERFUL FORCES STAND AGAINST US.
+BUT WITH COURAGE, INGENUITY
+AND THE POWER OF MATH ON OUR SIDE,
+ANYTHING IS POSSIBLE!
+
+THE REVOLUTION WILL NOT BE CENTRALIZED. 
+
+> PROCEED?
+`;
+
+let i = 0;
+const typing = () => {
+  if (i < intro.length) {
+    document.getElementById("intro").innerHTML += intro.charAt(i);
+    i++;
+    setTimeout(typing, 20);
+  }
+}
+typing();
+</script>
 </body>
 </html>
